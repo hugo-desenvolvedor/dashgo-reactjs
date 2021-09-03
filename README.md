@@ -1,8 +1,13 @@
 # Dashgo
 Simple dashboard using ReactJS, NextJS and ChakraUI.
 
-## Install
+## Install Next and dependencies
 To create a NextJS project in an existing directory, run `yarn create next-app .`
+
+### Dependencies
+```
+yarn add typescript @types/react @types/react @types/node -D
+```
 
 ## Getting Started
 First, run the development server:
