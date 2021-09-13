@@ -7,6 +7,7 @@ To create a NextJS project in an existing directory, run `yarn create next-app .
 ### Dependencies
 ```
 yarn add typescript @types/react @types/react @types/node -D
+yarn add @chakra-ui/react @chakra-ui/core @emotion/react @emotion/styled framer-motion
 ```
 
 ## Getting Started
