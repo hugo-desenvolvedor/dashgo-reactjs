@@ -6,9 +6,9 @@ To create a NextJS project in an existing directory, run `yarn create next-app .
 
 ### Dependencies
 ```
-yarn add typescript @types/react @types/react @types/node -D
+yarn add typescript sass @types/react @types/react @types/node -D
 yarn add @chakra-ui/react @chakra-ui/core @emotion/react @emotion/styled framer-motion
-yarn add sass -D
+yarn add react-icons
 ```
 
 ## Getting Started
@@ -26,10 +26,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - public
 - src
     - components
-        - Input.tsx
+        - Form
+            - Input.tsx
+        - Header.tsx
     - pages
         - _app.tsx
         - _document.tsx
+        - dashboard.tsx
         - index.tsx
     - styles
 
