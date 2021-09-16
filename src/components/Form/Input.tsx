@@ -11,7 +11,7 @@ interface  InputFormProps extends ChackraInputProps {
 export default function Input ( { name, id, label, ...rest }: InputFormProps ) {
     return <FormControl>
         
-        { !!label && <FormLabel htmlFor="email" className={styles.label}>{name}</FormLabel>}
+        { !!label && <FormLabel htmlFor="email" className={styles.label}>{label}</FormLabel>}
         
         <ChakraInput
             name={name}

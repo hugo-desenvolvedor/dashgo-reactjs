@@ -30,7 +30,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
         - Form
             - Input.tsx
         - Header.tsx
+        - Pagination.tsx
+        - Sidebar.tsx
     - pages
+        - users
+            - create.tsx
+            - index.tsx
         - _app.tsx
         - _document.tsx
         - dashboard.tsx
