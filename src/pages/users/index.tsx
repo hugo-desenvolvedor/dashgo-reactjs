@@ -1,4 +1,4 @@
-import { Flex, Text, Icon, Box, Heading, Button, Table, Checkbox, Thead, Th, Tr, Td, Tbody} from '@chakra-ui/react'
+import { Flex, Text, Icon, Box, Heading, Button, Table, Checkbox, Thead, Th, Tr, Td, Tbody, useBreakpointValue} from '@chakra-ui/react'
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 
 import { Header } from '../../components/Header'
@@ -7,10 +7,15 @@ import { Sidebar } from '../../components/Sidebar'
 
 
 export default function UserList() {
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    })
+    
     return (
         <Box>
             <Header />
-            <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
+            <Flex w="100%" my="6" maxWidth={1480} mx="auto" px={["4", "4", "6"]}>
                 <Sidebar />
 
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8">
@@ -31,17 +36,17 @@ export default function UserList() {
                     <Table colorScheme="whiteAlpha">
                         <Thead>
                             <Tr>
-                                <Th px="6" color="gray.300" width="8">
+                            <Th px={["4", "4", "6"]} color="gray.300" width="8">
                                     <Checkbox colorScheme="pink"></Checkbox>
                                 </Th>
                                 <Th>User</Th>
-                                <Th>Date</Th>
+                                { isWideVersion && <Th>Date</Th>}
                                 <Th width="8"></Th>
                             </Tr>
                         </Thead>
                         <Tbody>
                             <Tr>
-                                <Td px="6">
+                                <Td px={["4", "4", "6"]}>
                                     <Checkbox colorScheme="pink"></Checkbox>
                                 </Td>
                                 <Td>
@@ -50,17 +55,19 @@ export default function UserList() {
                                         <Text fontSize="sm" color="gray.300">hugo.desenvolvedor@gmail.com</Text>
                                     </Box>
                                 </Td>
-                                <Td>September 15, 2021</Td>
+                                { isWideVersion && <Td>September 15, 2021</Td> }
                                 <Td>
-                                <Button 
-                                    as="a" 
-                                    size="sm" 
-                                    fontSize="sm" 
-                                    colorScheme="purple"
-                                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                                >
-                                    Edit
-                                </Button>
+                                { isWideVersion && (
+                                    <Button 
+                                        as="a" 
+                                        size="sm" 
+                                        fontSize="sm" 
+                                        colorScheme="purple"
+                                        leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
+                                    >
+                                        Edit
+                                    </Button>
+                                )}
                                 </Td>
                             </Tr>
                         </Tbody>
