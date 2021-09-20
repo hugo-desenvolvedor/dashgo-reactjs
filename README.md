@@ -1,5 +1,5 @@
 # Dashgo
-Simple dashboard using ReactJS, NextJS and ChakraUI.
+Simple dashboard using ReactJS, NextJS and ChakraUI. Using MirageJS to mock the API.
 
 ## Install Next and dependencies
 To create a NextJS project in an existing directory, run `yarn create next-app .`
@@ -23,6 +23,12 @@ yarn add react-hook-form
 
 # Form Validation
 yarn add yup @hookform/resolvers
+
+# MirageJS Mocked Server
+yarn add miragejs -D
+
+# Fake Data
+yarn add faker @types/faker -D
 ```
 
 ## Getting Started
@@ -35,6 +41,7 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 ## Structure
 - public
@@ -54,6 +61,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
         - dashboard.tsx
         - index.tsx
     - styles
+    - services
+        - mirage
 
 ## Documentation:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.

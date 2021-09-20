@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Header } from '../../components/Header'
 import { Pagination } from '../../components/Pagination';
 import { Sidebar } from '../../components/Sidebar'
+import { useEffect } from 'react';
 
 
 export default function UserList() {
@@ -13,6 +14,13 @@ export default function UserList() {
         base: false,
         lg: true
     })
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/users')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+    }, [])
     
     return (
         <Box>
@@ -31,7 +39,7 @@ export default function UserList() {
                                 fontSize="sm"
                                 colorScheme="pink"
                                 leftIcon={<Icon as={RiAddLine} fontSize="20"/>}
-                                >
+                            >
                                 New User
                             </Button>
                         </Link>
