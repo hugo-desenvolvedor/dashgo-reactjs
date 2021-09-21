@@ -6,7 +6,7 @@ To create a NextJS project in an existing directory, run `yarn create next-app .
 
 ### Dependencies
 ```
-# Type script
+# Typescript
 yarn add typescript sass @types/react @types/react @types/node -D
 
 # Chakra
@@ -32,6 +32,9 @@ yarn add faker @types/faker -D
 
 # React Query (Stale While Revalidate && Revalidate on focus)
 yarn add react-query
+
+# Axios
+yarn add axios
 ```
 
 ## Getting Started

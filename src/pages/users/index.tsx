@@ -6,32 +6,10 @@ import Link from 'next/link'
 import { Header } from '../../components/Header'
 import { Pagination } from '../../components/Pagination'
 import { Sidebar } from '../../components/Sidebar'
-import { useEffect } from 'react'
-import { useQuery } from 'react-query'
+import { useUsers } from '../../services/hooks/useUsers'
 
 export default function UserList() {
-    const { data, isLoading, error } = useQuery('users', async () => {
-        const response = await fetch('http://localhost:3000/api/users');
-
-        const data = await response.json();
-
-        const users = data.users.map(user => {
-            return {
-                id: user.id,
-                email: user.email,
-                createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric'
-                })
-            };
-        });
-
-        return users;
-    }, {
-        staleTime: 1000 * 5,
-    })
-
+    const { data, isLoading, isFetching, error } = useUsers();
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -46,7 +24,12 @@ export default function UserList() {
 
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8">
                     <Flex mb="8" justify="space-between" align="center">
-                        <Heading size="lg" fontWeight="normal">Users</Heading>
+                        <Heading size="lg" fontWeight="normal">
+                            Users
+                            { !isLoading && isFetching && (
+                                <Spinner size="sm" ml="4" color="gray.500"/>
+                            )}
+                        </Heading>
 
                         <Link href="/users/create" passHref>
                             <Button
@@ -67,7 +50,7 @@ export default function UserList() {
                         </Flex>
                     ) :error ? (
                         <Flex justify="center">
-                            <Text>Falha ao obter dados dos usuários.</Text>
+                            <Text>Error to get user data.</Text>
                         </Flex>
                     ) : (
                         <>
