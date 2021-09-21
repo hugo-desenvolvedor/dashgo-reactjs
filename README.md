@@ -29,6 +29,9 @@ yarn add miragejs -D
 
 # Fake Data
 yarn add faker @types/faker -D
+
+# React Query (Stale While Revalidate && Revalidate on focus)
+yarn add react-query
 ```
 
 ## Getting Started
