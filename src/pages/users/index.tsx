@@ -7,9 +7,11 @@ import { Header } from '../../components/Header'
 import { Pagination } from '../../components/Pagination'
 import { Sidebar } from '../../components/Sidebar'
 import { useUsers } from '../../services/hooks/useUsers'
+import { useState } from 'react'
 
 export default function UserList() {
-    const { data, isLoading, isFetching, error } = useUsers();
+    const [page, setPage] = useState(1);
+    const { data, isLoading, isFetching, error } = useUsers(page);
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -54,49 +56,53 @@ export default function UserList() {
                         </Flex>
                     ) : (
                         <>
-                        <Table colorScheme="whiteAlpha">
-                        <Thead>
-                            <Tr>
-                            <Th px={["4", "4", "6"]} color="gray.300" width="8">
-                                    <Checkbox colorScheme="pink"></Checkbox>
-                                </Th>
-                                <Th>User</Th>
-                                { isWideVersion && <Th>Date</Th>}
-                                <Th width="8"></Th>
-                            </Tr>
-                        </Thead>
-                        <Tbody>
-                            {data.map(user => {
-                                return <Tr key={user.id}>
-                                    <Td px={["4", "4", "6"]}>
+                            <Table colorScheme="whiteAlpha">
+                            <Thead>
+                                <Tr>
+                                <Th px={["4", "4", "6"]} color="gray.300" width="8">
                                         <Checkbox colorScheme="pink"></Checkbox>
+                                    </Th>
+                                    <Th>User</Th>
+                                    { isWideVersion && <Th>Date</Th>}
+                                    <Th width="8"></Th>
+                                </Tr>
+                            </Thead>
+                            <Tbody>
+                                {data.users.map(user => {
+                                    return <Tr key={user.id}>
+                                        <Td px={["4", "4", "6"]}>
+                                            <Checkbox colorScheme="pink"></Checkbox>
+                                        </Td>
+                                    <Td>
+                                        <Box>
+                                            <Text fontWeight="bold">{user.name}</Text>
+                                            <Text fontSize="sm" color="gray.300">{user.email}</Text>
+                                        </Box>
                                     </Td>
-                                <Td>
-                                    <Box>
-                                        <Text fontWeight="bold">{user.name}</Text>
-                                        <Text fontSize="sm" color="gray.300">{user.email}</Text>
-                                    </Box>
-                                </Td>
-                                { isWideVersion && <Td>{user.createdAt}</Td> }
-                                <Td>
-                                { isWideVersion && (
-                                    <Button 
-                                        as="a" 
-                                        size="sm" 
-                                        fontSize="sm" 
-                                        colorScheme="purple"
-                                        leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                                    >
-                                        Edit
-                                    </Button>
-                                )}
-                                </Td>
-                            </Tr>
-                            })}
-                        </Tbody>
-                    </Table>
-                    <Pagination />
-                        </>
+                                    { isWideVersion && <Td>{user.createdAt}</Td> }
+                                    <Td>
+                                    { isWideVersion && (
+                                        <Button 
+                                            as="a" 
+                                            size="sm" 
+                                            fontSize="sm" 
+                                            colorScheme="purple"
+                                            leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
+                                        >
+                                            Edit
+                                        </Button>
+                                    )}
+                                    </Td>
+                                </Tr>
+                                })}
+                            </Tbody>
+                        </Table>
+                        <Pagination 
+                            totalCountOfRegisters={data.totalCount}
+                            currentPage={page}
+                            onPageChange={setPage}
+                        />
+                    </>
                     )}
                 </Box>
             </Flex>
