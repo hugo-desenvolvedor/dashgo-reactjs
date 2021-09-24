@@ -58,6 +58,8 @@ export function makeServer() {
                 )
             });
 
+            this.get('/users:id');
+
             // MirageJS Shorthand to create a user
             this.post('/users');
 

@@ -48,27 +48,50 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
-## Structure
-- public
-- src
-    - components
-        - Form
-            - Input.tsx
-        - Header.tsx
-        - Pagination.tsx
-        - Sidebar.tsx
-    - pages
-        - users
-            - create.tsx
-            - index.tsx
-        - _app.tsx
-        - _document.tsx
-        - dashboard.tsx
-        - index.tsx
-    - styles
-    - services
-        - mirage
+## Directory Tree
+```
+📦public
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂Form
+ ┃ ┃ ┣ 📜Input.tsx
+ ┃ ┃ ┗ 📜input.module.scss
+ ┃ ┣ 📂Header
+ ┃ ┃ ┣ 📜Logo.tsx
+ ┃ ┃ ┣ 📜NotificationsNav.tsx
+ ┃ ┃ ┣ 📜Profile.tsx
+ ┃ ┃ ┣ 📜SearchBox.tsx
+ ┃ ┃ ┗ 📜index.tsx
+ ┃ ┣ 📂Pagination
+ ┃ ┃ ┣ 📜PaginationItem.tsx
+ ┃ ┃ ┗ 📜index.tsx
+ ┃ ┣ 📂Sidebar
+ ┃ ┃ ┣ 📜NavLink.tsx
+ ┃ ┃ ┣ 📜NavSection.tsx
+ ┃ ┃ ┣ 📜SidebarNav.tsx
+ ┃ ┃ ┗ 📜index.tsx
+ ┃ ┗ 📜ActiveLink.tsx
+ ┣ 📂contexts
+ ┃ ┗ 📜SidebarDrawerContext.tsx
+ ┣ 📂pages
+ ┃ ┣ 📂users
+ ┃ ┃ ┣ 📜create.tsx
+ ┃ ┃ ┗ 📜index.tsx
+ ┃ ┣ 📜_app.tsx
+ ┃ ┣ 📜_document.tsx
+ ┃ ┣ 📜dashboard.tsx
+ ┃ ┗ 📜index.tsx
+ ┣ 📂services
+ ┃ ┣ 📂hooks
+ ┃ ┃ ┗ 📜useUsers.ts
+ ┃ ┣ 📂mirage
+ ┃ ┃ ┗ 📜index.ts
+ ┃ ┣ 📜api.ts
+ ┃ ┗ 📜queryClient.ts
+ ┗ 📂styles
+ ┃ ┣ 📜config.ts
+ ┃ ┗ 📜theme.ts
+ ```
 
 ## Documentation:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
